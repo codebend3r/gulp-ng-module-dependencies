@@ -1,7 +1,7 @@
 /**
- * Updated by crivas on 08/24/2015
+ * Updated by crivas on 08/25/2015
  * Email: chester.rivas@gmail.com
- * Plugin Name: gulp-module-dependencies
+ * Plugin Name: gulp-ng-module-dependencies
  */
 
 'use strict';
@@ -95,6 +95,9 @@ var moduleDependencies = function (options) {
 
       var ctx = file.contents.toString('utf8'),
         modulesString = addDependencies(ctx);
+
+      console.log('> modulesString', modulesString);
+      console.log('> modulesString JSON', JSON.stringify(modulesString));        
 
       file.contents = new Buffer(modulesString);
       callback(null, file);

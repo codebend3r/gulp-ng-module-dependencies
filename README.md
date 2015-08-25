@@ -1,10 +1,9 @@
-Gulp Module Dependencies
+Gulp Angular Module Dependencies
 ====================
 
-Automatically defines dependencies and constants
+# Automatically defines dependencies and constants
 
-
-    var moduleDependencies = require('gulp-module-dependencies');
+    var moduleDependencies = require('gulp-ng-module-dependencies');
 
     gulp.task('module-dependencies', function () {
 
