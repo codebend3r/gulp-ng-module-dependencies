@@ -1,7 +1,9 @@
 Gulp Angular Module Dependencies
 ====================
 
-# Automatically defines dependencies and constants
+> Automatically defines dependencies and constants
+
+Example
 
     var moduleDependencies = require('gulp-ng-module-dependencies');
 

@@ -41,7 +41,7 @@ var moduleDependencies = function (options) {
 
     var depArray = [];
 
-    _.each(uteJSON.components, function(components) {
+    _.each(uteJSON.components, function (components) {
 
       depArray = depArray.concat(components.dependencies);
 
@@ -52,20 +52,19 @@ var moduleDependencies = function (options) {
 
     return object.replace(/(?:angular\.module)(?:\(('|")(.*?)('|")\,\s\[\n+\]\))/g, function (str) {
 
-      return str.replace(/\[\n+\]/g, function(depInnerString) {
+      return str.replace(/\[\n+\]/g, function (depInnerString) {
 
         var splitString = depInnerString.split('\n');
 
         var depString = '\n';
 
-        _.each(uniqueDep, function(dep) {
+        _.each(uniqueDep, function (dep) {
           depString += '\t\'' + dep + '\'\n';
         });
 
         splitString[1] = depString;
 
         var joinedFile = splitString.join('');
-        gutil.log('> dependencies', gutil.colors.cyan(joinedFile));
         return joinedFile;
 
       });
@@ -95,9 +94,6 @@ var moduleDependencies = function (options) {
 
       var ctx = file.contents.toString('utf8'),
         modulesString = addDependencies(ctx);
-
-      console.log('> modulesString', modulesString);
-      console.log('> modulesString JSON', JSON.stringify(modulesString));        
 
       file.contents = new Buffer(modulesString);
       callback(null, file);
