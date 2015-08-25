@@ -1,0 +1,16 @@
+{
+  "name": "gulp-module-dependencies",
+  "version": "0.0.1",
+  "repository": "http://totes-gitlab01.rogers.com/ute/ute-ui",
+  "description": "dynamically imports sass files based on folder names",
+  "main": "index.js",
+  "author": "Chester Rivas",
+  "license": "MIT",
+  "dependencies": {
+    "through2": "^0.6.3",
+    "gulp-util": "^3.0.6",
+    "jsonfile": "^2.2.1",
+    "array-unique": "0.2.1",
+    "underscore-node": "^0.1.2"
+  }
+}
