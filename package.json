@@ -1,7 +1,7 @@
 {
   "name": "gulp-ng-module-dependencies",
-  "version": "0.0.2",
-  "repository": "http://totes-gitlab01.rogers.com/ute/ute-ui",
+  "version": "0.0.3",
+  "repository": "https://github.com/crivas/gulp-ng-module-dependencies",
   "description": "dynamically imports sass files based on folder names",
   "main": "index.js",
   "author": "Chester Rivas",

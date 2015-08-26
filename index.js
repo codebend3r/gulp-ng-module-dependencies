@@ -1,5 +1,5 @@
 /**
- * Updated by crivas on 08/25/2015
+ * Updated by crivas on 08/26/2015
  * Email: chester.rivas@gmail.com
  * Plugin Name: gulp-ng-module-dependencies
  */
@@ -22,13 +22,13 @@ var moduleDependencies = function (options) {
 
   options = options || {};
 
-  var uteJSON;
+  var configJSON;
 
-  if (!_.isUndefined(options.uteJSON)) {
-    if (typeof options.uteJSON === 'string') {
-      uteJSON = jsonfile.readFileSync(options.uteJSON);
-    } else if (typeof options.uteJSON === 'object') {
-      uteJSON = options.uteJSON;
+  if (!_.isUndefined(options.configJSON)) {
+    if (typeof options.configJSON === 'string') {
+      configJSON = jsonfile.readFileSync(options.configJSON);
+    } else if (typeof options.configJSON === 'object') {
+      configJSON = options.configJSON;
     }
   }
 
@@ -41,7 +41,7 @@ var moduleDependencies = function (options) {
 
     var depArray = [];
 
-    _.each(uteJSON.components, function (components) {
+    _.each(configJSON.components, function (components) {
 
       depArray = depArray.concat(components.dependencies);
 
@@ -83,7 +83,7 @@ var moduleDependencies = function (options) {
 
     if (file.isStream()) {
 
-      this.emit('error', new gutil.PluginError('gulp-module-dependencies', 'Streams are not supported!'));
+      this.emit('error', new gutil.PluginError('gulp-ng-module-dependencies', 'Streams are not supported!'));
       callback();
 
     } else if (file.isNull()) {
