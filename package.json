@@ -12,5 +12,9 @@
     "jsonfile": "^2.2.1",
     "array-unique": "0.2.1",
     "underscore-node": "^0.1.2"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
   }
 }
