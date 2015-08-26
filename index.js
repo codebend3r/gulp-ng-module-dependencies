@@ -59,11 +59,11 @@ var moduleDependencies = function (options) {
         var depString = '\n';
 
         _.each(uniqueDep, function (dep) {
-          depString += '\t\t\'' + dep + '\'\n';
+          depString += '\t\t\'' + dep + '\',\n';
         });
 
+        depString = depString.substr(0, depString.lastIndexOf(',')) + '\n';
         splitString[1] = depString;
-
         var joinedFile = splitString.join('');
         return joinedFile;
 
@@ -94,6 +94,8 @@ var moduleDependencies = function (options) {
 
       var ctx = file.contents.toString('utf8'),
         modulesString = addDependencies(ctx);
+
+      gutil.log('module setter:', modulesString);
 
       file.contents = new Buffer(modulesString);
       callback(null, file);
