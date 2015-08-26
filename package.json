@@ -1,8 +1,8 @@
 {
   "name": "gulp-ng-module-dependencies",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": "https://github.com/crivas/gulp-ng-module-dependencies",
-  "description": "dynamically imports sass files based on folder names",
+  "description": "Dynamically imports sass files based on folder names",
   "main": "index.js",
   "author": "Chester Rivas",
   "license": "MIT",

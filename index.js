@@ -50,16 +50,16 @@ var moduleDependencies = function (options) {
     // make array unique
     var uniqueDep = arrayUnique(depArray);
 
-    return object.replace(/(?:angular\.module)(?:\(('|")(.*?)('|")\,\s\[\n+\]\))/g, function (str) {
+    return object.replace(/(?:angular\.module)(?:\(('|")(.*?)('|")\,\s*)(?:\[\s*\]\))/g, function (str) {
 
-      return str.replace(/\[\n+\]/g, function (depInnerString) {
+      return str.replace(/(?:\[\s*\]\))/g, function (squareBracketsString) {
 
-        var splitString = depInnerString.split('\n');
+        var splitString = squareBracketsString.split('\n');
 
         var depString = '\n';
 
         _.each(uniqueDep, function (dep) {
-          depString += '\t\'' + dep + '\'\n';
+          depString += '\t\t\'' + dep + '\'\n';
         });
 
         splitString[1] = depString;
