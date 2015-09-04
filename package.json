@@ -1,8 +1,8 @@
 {
   "name": "gulp-ng-module-dependencies",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "repository": "https://github.com/crivas/gulp-ng-module-dependencies",
-  "description": "Dynamically imports sass files based on folder names",
+  "description": "Will look for the angular.module setter defintion and inject dependencies based on config object.",
   "main": "index.js",
   "author": "Chester Rivas",
   "license": "MIT",

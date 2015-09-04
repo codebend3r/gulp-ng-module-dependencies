@@ -1,5 +1,5 @@
 /**
- * Updated by crivas on 08/26/2015
+ * Updated by crivas on 09/04/2015
  * Email: chester.rivas@gmail.com
  * Plugin Name: gulp-ng-module-dependencies
  */
@@ -7,7 +7,7 @@
 'use strict';
 
 var jsonfile = require('jsonfile'),
-  arrayUnique = require('array-unique'),
+  addDependencies = require('./lib/addDependencies'),
   fs = require('fs'),
   through = require('through2'),
   gutil = require('gulp-util'),
@@ -33,47 +33,6 @@ var moduleDependencies = function (options) {
   }
 
   /**
-   * adds dependencies
-   * @param object
-   * @returns {object}
-   */
-  var addDependencies = function (object) {
-
-    var depArray = [];
-
-    _.each(configJSON.components, function (components) {
-
-      depArray = depArray.concat(components.dependencies);
-
-    });
-
-    // make array unique
-    var uniqueDep = arrayUnique(depArray);
-
-    return object.replace(/(?:angular\.module)(?:\(('|")(.*?)('|")\,\s*)(?:\[\s*\]\))/g, function (str) {
-
-      return str.replace(/(?:\[\s*\]\))/g, function (squareBracketsString) {
-
-        var splitString = squareBracketsString.split('\n');
-
-        var depString = '\n';
-
-        _.each(uniqueDep, function (dep) {
-          depString += '\t\t\'' + dep + '\',\n';
-        });
-
-        depString = depString.substr(0, depString.lastIndexOf(',')) + '\n';
-        splitString[1] = depString;
-        var joinedFile = splitString.join('');
-        return joinedFile;
-
-      });
-
-    });
-
-  };
-
-  /**
    * buffer each content
    * @param file
    * @param enc
@@ -93,7 +52,7 @@ var moduleDependencies = function (options) {
     } else {
 
       var ctx = file.contents.toString('utf8'),
-        modulesString = addDependencies(ctx);
+        modulesString = addDependencies(ctx, configJSON);
 
       gutil.log('module setter:', modulesString);
 
