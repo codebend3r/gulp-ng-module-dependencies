@@ -1,5 +1,5 @@
 /**
- * Updated by crivas on 09/04/2015
+ * Updated by crivas on 09/17/2015
  * Email: chester.rivas@gmail.com
  * Plugin Name: gulp-ng-module-dependencies
  */
@@ -53,8 +53,6 @@ var moduleDependencies = function (options) {
 
       var ctx = file.contents.toString('utf8'),
         modulesString = addDependencies(ctx, configJSON);
-
-      gutil.log('module setter:', modulesString);
 
       file.contents = new Buffer(modulesString);
       callback(null, file);

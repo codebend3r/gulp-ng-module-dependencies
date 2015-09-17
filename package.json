@@ -1,6 +1,6 @@
 {
   "name": "gulp-ng-module-dependencies",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "repository": "https://github.com/crivas/gulp-ng-module-dependencies",
   "description": "Will look for the angular.module setter defintion and inject dependencies based on config object.",
   "main": "index.js",
