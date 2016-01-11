@@ -1,0 +1,19 @@
+{
+  "moduleName": "test",
+  "selectedBrand": "test",
+  "components": {
+    "core": {
+      "enabled": true,
+      "angularDependencies": [
+        "ui.bootstrap",
+        "ui.router",
+        "tmh.dynamicLocale",
+        "angularMoment",
+        "oc.lazyLoad",
+        "ngTable",
+        "pascalprecht.translate",
+        "ngCookies"
+      ]
+    }
+  }
+}

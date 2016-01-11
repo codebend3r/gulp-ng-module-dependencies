@@ -1,0 +1,12 @@
+{
+  "moduleName": "test",
+  "selectedBrand": "test",
+  "components": {
+    "core": {
+      "enabled": true,
+      "angularDependencies": [
+        "angularMoment"
+      ]
+    }
+  }
+}
