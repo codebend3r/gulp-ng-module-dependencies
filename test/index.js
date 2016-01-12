@@ -1,7 +1,7 @@
 'use strict';
 
-var should = require('chai').should(),
-  chai = require('chai'),
+var chai = require('chai'),
+  should = chai.should(),
   expect = chai.expect,
   assert = chai.assert,
   path = require('path'),
