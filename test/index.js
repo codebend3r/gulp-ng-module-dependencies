@@ -1,13 +1,14 @@
 'use strict';
 
 var should = require('chai').should(),
-  expect = require('chai').expect,
-  assert = require('chai').assert,
-  through = require('through2'),
+  chai = require('chai'),
+  expect = chai.expect,
+  assert = chai.assert,
   path = require('path'),
   gutil = require('gulp-util'),
-  _ = require('underscore-node'),
   fs = require('fs'),
+  startString = 'angular.module(\'test\', [',
+  endString = ']);',
   ngDependencies = require('../index');
 
 describe('ng-module-dependencies', function () {
@@ -37,13 +38,16 @@ describe('ng-module-dependencies', function () {
 
       var changedFile = file.contents.toString('utf8');
 
-      assert.include(changedFile, 'angularMoment', 'string includes \'angularMoment\'');
+      expect(changedFile).to.have.string(startString);
+      expect(changedFile).to.have.string(endString);
+      expect(changedFile).to.not.have.string('ui.bootstrap');
+      expect(changedFile).to.have.string('angularMoment');
 
       cb();
 
     });
 
-    stream.write(getFile('./test/fixtures/in/expect1.js'));
+    stream.write(getFile('./test/fixtures/in/emptyModule.js'));
 
   });
 
@@ -57,13 +61,25 @@ describe('ng-module-dependencies', function () {
 
       var changedFile = file.contents.toString('utf8');
 
-      assert.include(changedFile, 'angularMoment', 'string includes \'angularMoment\'');
+      expect(changedFile).to.have.string(startString);
+      expect(changedFile).to.have.string(endString);
+
+      expect(changedFile).to.have.string('ui.bootstrap');
+      expect(changedFile).to.have.string('ui.router');
+      expect(changedFile).to.have.string('tmh.dynamicLocale');
+      expect(changedFile).to.have.string('angularMoment');
+      expect(changedFile).to.have.string('oc.lazyLoad');
+      expect(changedFile).to.have.string('ngTable');
+      expect(changedFile).to.have.string('pascalprecht.translate');
+      expect(changedFile).to.have.string('ngCookies');
+
+      expect(changedFile).to.not.have.string('blah');
 
       cb();
 
     });
 
-    stream.write(getFile('./test/fixtures/in/expect2.js'));
+    stream.write(getFile('./test/fixtures/in/emptyModule.js'));
 
   });
 
