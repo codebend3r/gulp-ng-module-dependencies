@@ -11,7 +11,7 @@ var chai = require('chai'),
   endString = ']);',
   ngDependencies = require('../index');
 
-describe('ng-module-dependencies', function () {
+describe('gulp-ng-module-dependencies', function () {
 
   var getFile = function (filePath) {
     return new gutil.File({
